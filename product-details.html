@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل المنتج</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .price {
+            color: green;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- اسم المنتج -->
+    <h1 id="name"></h1>
+
+    <!-- صورة المنتج -->
+    <img id="image">
+
+    <!-- السعر -->
+    <p class="price" id="price"></p>
+
+    <!-- زرار الرجوع -->
+    <a href="shop.html">
+        <button class="back">⬅ الرجوع للمتجر</button>
+    </a>
+
+</div>
+
+<script>
+
+const products = {
+    1: { img: "1.jpeg", name: "nike air max ", price: "1500 ج.م" ,},
+    2: { img: "2.jpeg", name: "كوتشي فلات", price: "1000 ج.م" },
+    3: { img: "6.jpeg", name: "كوتشي شمواه اسود", price: "1200 ج.م" },
+    4: { img: "3.jpeg", name: "كوتشي اير جوردن4", price: "1100 ج.م" },
+    5: { img: "4.jpeg", name: "new balance 990", price: "1300 ج.م" },
+    6: { img: "5.jpeg", name: "الكسندر اسود رجالي", price: "1400 ج.م" }
+};
+
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+
+if (products[id]) {
+    document.getElementById("image").src = products[id].img;
+    document.getElementById("name").innerText = products[id].name;
+    document.getElementById("price").innerText = products[id].price;
+}
+</script>
+
+
+</body>
+</html>
